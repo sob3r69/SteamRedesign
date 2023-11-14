@@ -1,4 +1,4 @@
 import Footer from './Footer/Footer';
-import Header from './Header/Header';
+import ClientHeader from './ClientHeader/ClientHeader';
 
-export { Header, Footer };
+export { ClientHeader, Footer };

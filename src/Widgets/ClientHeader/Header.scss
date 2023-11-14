@@ -1,0 +1,10 @@
+@import '@/app/styles/vars';
+
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: $gpBackground-DarkHard;
+  height: 59px;
+  gap: 8px;
+}

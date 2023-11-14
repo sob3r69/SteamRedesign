@@ -1,0 +1,59 @@
+@import '@/app/styles/vars';
+@font-face {
+  font-family: 'Motiva Sans';
+  src: 
+    // url(./fonts/MotivaSansBlack.ttf) format('truetype'),
+    // url(./fonts/MotivaSansBold.ttf) format('truetype'),
+    // url(./fonts/MotivaSansExtraBold.ttf) format('truetype'),
+    // url(./fonts/MotivaSansLight.ttf) format('truetype'),
+    // url(./fonts/MotivaSansMedium.ttf) format('truetype'),
+    url(./fonts/MotivaSansRegular.ttf) format('truetype');
+  // url(./fonts/MotivaSansThin.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Motiva Sans', sans-serif;
+  color: #f3f3f3;
+  background-color: $gpBackground-DarkHard;
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0px;
+
+  a {
+    color: #f3f3f3;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #ffffff;
+  }
+}
+
+h1 {
+  font-size: 26px;
+  font-style: bold;
+}
+h2 {
+  font-size: 22px bold;
+}
+h3 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  main {
+    flex-grow: 1;
+  }
+}

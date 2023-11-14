@@ -1,9 +1,9 @@
-import { Footer, Header } from '@/Widgets';
+import { Footer, ClientHeader } from '@/Widgets';
 
 const StorePage = () => {
   return (
     <>
-      <Header />
+      <ClientHeader />
       <main>Store main content</main>
       <Footer />
     </>

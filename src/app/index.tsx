@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import StorePage from '@/Pages/StorePage';
-import './main.scss';
+import './index.scss';
 
 function App() {
   return (
