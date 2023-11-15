@@ -1,22 +1,15 @@
 @import '@/app/styles/vars';
 @font-face {
   font-family: 'Motiva Sans';
-  src: 
-    // url(./fonts/MotivaSansBlack.ttf) format('truetype'),
-    // url(./fonts/MotivaSansBold.ttf) format('truetype'),
-    // url(./fonts/MotivaSansExtraBold.ttf) format('truetype'),
-    // url(./fonts/MotivaSansLight.ttf) format('truetype'),
-    // url(./fonts/MotivaSansMedium.ttf) format('truetype'),
-    url(./fonts/MotivaSansRegular.ttf) format('truetype');
-  // url(./fonts/MotivaSansThin.ttf) format('truetype');
+  src: url(./fonts/MotivaSansRegular.ttf) format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 body {
   font-family: 'Motiva Sans', sans-serif;
-  color: #f3f3f3;
-  background-color: $gpBackground-DarkHard;
+  color: $mainText;
+  background-color: $backgroundDark;
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
@@ -28,11 +21,11 @@ h3 {
   margin: 0px;
 
   a {
-    color: #f3f3f3;
+    color: $mainText;
     text-decoration: none;
   }
   a:hover {
-    color: #ffffff;
+    color: white;
   }
 }
 

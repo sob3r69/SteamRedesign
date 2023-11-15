@@ -4,7 +4,11 @@ header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: $gpBackground-DarkHard;
+  background-color: $backgroundDark;
   height: 59px;
   gap: 8px;
+}
+
+#arrowRight {
+  transform: scale(-1, 1);
 }
