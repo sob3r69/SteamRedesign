@@ -1,0 +1,11 @@
+@import '@/app/styles/vars';
+
+.socialButton {
+  background-color: $backgroundHighlight;
+  border: none;
+  border-radius: 3px;
+  color: $dimText;
+  width: 56px;
+  height: 37px;
+  margin-right: 10px;
+}

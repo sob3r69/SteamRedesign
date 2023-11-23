@@ -1,9 +1,13 @@
 @import '@/app/styles/vars';
+.nav {
+  display: flex;
+}
 
 header {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   background-color: $backgroundDark;
   height: 59px;
 }
