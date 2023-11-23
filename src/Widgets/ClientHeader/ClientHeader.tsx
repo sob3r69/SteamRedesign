@@ -7,24 +7,28 @@ const ClientHeader = () => {
   const navigate = useNavigate();
   return (
     <header>
-      <img onClick={() => navigate(-1)} id="arrowLeft" src={RouteArrow} />
-      <img onClick={() => navigate(1)} id="arrowRight" src={RouteArrow} />
+      <div className="clientHeader-arrows">
+        <img onClick={() => navigate(-1)} id="arrowLeft" src={RouteArrow} />
+        <img onClick={() => navigate(1)} id="arrowRight" src={RouteArrow} />
+      </div>
       <img id="logo" width={88} height={26} src={SteamLogo} />
-      <h3>
-        <Link to={'/store'}>STORE</Link>
-      </h3>
-      <h3>
-        <Link to={'/community'}>COMMUNITY</Link>
-      </h3>
-      <h3>
-        <Link to={'/user'}>USER</Link>
-      </h3>
-      <h3>
-        <Link to={'/library'}>LIBRARY</Link>
-      </h3>
-      <h3>
-        <Link to={'/downloads'}>DOWNLOADS</Link>
-      </h3>
+      <div className="clientHeader-navigation">
+        <h3>
+          <Link to={'/store'}>STORE</Link>
+        </h3>
+        <h3>
+          <Link to={'/community'}>COMMUNITY</Link>
+        </h3>
+        <h3>
+          <Link to={'/user'}>USER</Link>
+        </h3>
+        <h3>
+          <Link to={'/library'}>LIBRARY</Link>
+        </h3>
+        <h3>
+          <Link to={'/downloads'}>DOWNLOADS</Link>
+        </h3>
+      </div>
     </header>
   );
 };

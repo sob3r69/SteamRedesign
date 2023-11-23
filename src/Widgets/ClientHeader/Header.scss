@@ -6,9 +6,27 @@ header {
   align-items: center;
   background-color: $backgroundDark;
   height: 59px;
-  gap: 8px;
 }
 
 #arrowRight {
   transform: scale(-1, 1);
+}
+
+#logo {
+  margin-left: 19px;
+}
+
+.clientHeader-navigation {
+  display: flex;
+  flex-direction: row;
+  gap: 66px;
+  margin-left: 66px;
+}
+
+.clientHeader-arrows {
+  display: flex;
+  flex-direction: row;
+  img {
+    cursor: pointer;
+  }
 }
