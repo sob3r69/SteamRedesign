@@ -1,0 +1,28 @@
+@import '@/app/styles/vars';
+
+.account-card {
+  background-color: $backgroundHighlight;
+  border: none;
+  border-radius: 3px;
+  color: $mainText;
+  display: flex;
+  justify-content: space-between;
+  width: 210px;
+  height: 39px;
+  align-items: center;
+}
+
+.account-nickName {
+  margin-left: 8px;
+}
+.account-balance {
+  color: $dimText;
+  margin-left: 8px;
+}
+
+.account-avatar-placeholder {
+  background-color: black;
+  border-radius: 2px;
+  width: 31px;
+  height: 31px;
+}

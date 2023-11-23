@@ -2,6 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import './Header.scss';
 import { RouteArrow, SteamLogo, FriendsIcon, NotificationIcon } from '@/app/assets';
 import { SocialButton } from '@/shared';
+import { AccountCard } from '..';
 
 const ClientHeader = () => {
   const navigate = useNavigate();
@@ -34,6 +35,7 @@ const ClientHeader = () => {
       <div className="clientHeader-userInfo">
         <SocialButton iconSrc={FriendsIcon} />
         <SocialButton iconSrc={NotificationIcon} />
+        <AccountCard />
       </div>
     </header>
   );

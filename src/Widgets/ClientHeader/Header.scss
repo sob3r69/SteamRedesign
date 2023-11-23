@@ -34,3 +34,9 @@ header {
     cursor: pointer;
   }
 }
+
+.clientHeader-userInfo {
+  display: flex;
+  flex-direction: row;
+  margin-right: 57px;
+}
