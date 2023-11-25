@@ -5,9 +5,11 @@
   padding-bottom: 16px;
   padding-left: 20px;
   padding-right: 20px;
+  transition: background-color 0.2s;
 }
 .dropdown-link:hover {
   background-color: $backgroundHover;
+  transition: background-color 0.2s;
 }
 .dropdown-link:first-child {
   border-radius: 3px 3px 0px 0px;
