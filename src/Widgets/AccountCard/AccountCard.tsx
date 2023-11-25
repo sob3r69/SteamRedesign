@@ -1,6 +1,7 @@
 import { ArrowDown } from '@/app/assets';
 import './AccountCard.scss';
 import { useEffect, useRef, useState } from 'react';
+import { DropdownLink } from '@/shared';
 
 const useOutsideClick = (callback: (value: boolean) => void) => {
   const ref = useRef<HTMLButtonElement>(null);
@@ -35,10 +36,16 @@ const AccountCard = () => {
         <h5 className="account-balance">$3.22</h5>
         <img src={ArrowDown} />
       </button>
-      <section
-        className="account-settings"
-        style={visibility ? { opacity: 1 } : { opacity: 0 }}
-      ></section>
+      <section className="account-settings" style={visibility ? { opacity: 1 } : { opacity: 0 }}>
+        <DropdownLink to="/">Account Details</DropdownLink>
+        <DropdownLink to="/">Wallet</DropdownLink>
+        <DropdownLink to="/">Settings</DropdownLink>
+        <DropdownLink to="/">Client Updates</DropdownLink>
+        <DropdownLink to="/">Go Offline</DropdownLink>
+        <DropdownLink to="/">Change Account</DropdownLink>
+        <DropdownLink to="/">Sign Out</DropdownLink>
+        <DropdownLink to="/">Exit</DropdownLink>
+      </section>
     </div>
   );
 };

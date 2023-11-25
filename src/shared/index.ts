@@ -1,3 +1,4 @@
-import SocialButton from './components/SocialButton';
+import SocialButton from './components/SocialButton/SocialButton';
+import DropdownLink from './components/DropdownLink/DropdownLink';
 
-export { SocialButton };
+export { SocialButton, DropdownLink };
