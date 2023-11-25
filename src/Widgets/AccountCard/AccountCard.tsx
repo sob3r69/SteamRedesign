@@ -1,26 +1,8 @@
 import { ArrowDown } from '@/app/assets';
 import './AccountCard.scss';
-import { useEffect, useRef, useState } from 'react';
-import { DropdownLink } from '@/shared';
-
-const useOutsideClick = (callback: (value: boolean) => void) => {
-  const ref = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    console.log('render');
-    const handleClickOutside = (event: MouseEvent) => {
-      if (ref.current && !ref.current.contains(event.target as Node)) {
-        callback(false);
-      }
-    };
-    document.addEventListener('click', handleClickOutside);
-
-    return () => {
-      document.removeEventListener('click', handleClickOutside);
-    };
-  }, [ref]);
-  return ref;
-};
+import { useState } from 'react';
+import { DropdownLink } from '@/shared/components';
+import { useOutsideClick } from '@/shared/hooks';
 
 const AccountCard = () => {
   const [visibility, setVisibility] = useState(false);

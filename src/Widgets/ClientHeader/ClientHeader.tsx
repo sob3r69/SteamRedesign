@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import './Header.scss';
 import { RouteArrow, SteamLogo, FriendsIcon, NotificationIcon } from '@/app/assets';
-import { SocialButton } from '@/shared';
+import { SocialButton } from '@/shared/components';
 import { AccountCard } from '..';
 
 const ClientHeader = () => {
