@@ -8,14 +8,11 @@
   width: 56px;
   height: 37px;
   margin-right: 10px;
-  img {
-    filter: brightness(100%);
-    transition: filter 0.2s;
-  }
+
+  filter: brightness(100%);
+  transition: filter 0.2s;
 }
 .socialButton:hover {
-  img {
-    filter: brightness(150%);
-    transition: filter 0.2s;
-  }
+  filter: brightness(150%);
+  transition: filter 0.2s;
 }

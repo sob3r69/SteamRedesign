@@ -1,16 +1,16 @@
 @import '@/app/styles/vars';
 
 .account-card {
+  align-items: center;
   background-color: $backgroundHighlight;
   border: none;
   border-radius: 3px;
   color: $mainText;
   cursor: pointer;
   display: flex;
+  height: 39px;
   justify-content: space-between;
   width: 210px;
-  height: 39px;
-  align-items: center;
 }
 
 .account-nickName {
