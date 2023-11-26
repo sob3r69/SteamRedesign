@@ -9,7 +9,7 @@ header {
   align-items: center;
   justify-content: space-between;
   background-color: $backgroundDark;
-  height: 59px;
+  min-height: 59px;
 }
 
 #arrowRight {
@@ -25,6 +25,9 @@ header {
   flex-direction: row;
   gap: 66px;
   margin-left: 66px;
+  a {
+    color: $mainText;
+  }
 }
 
 .clientHeader-arrows {

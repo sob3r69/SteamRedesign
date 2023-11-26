@@ -1,0 +1,11 @@
+@import '@/app/styles/vars';
+
+.game-tag {
+  background-color: $backgroundHighlight;
+  border-radius: 3px;
+  padding: 8px 13px 8px 13px;
+  width: fit-content;
+  a {
+    color: $dimText;
+  }
+}
