@@ -18,7 +18,10 @@ const AccountCard = () => {
         <h5 className="account-balance">$3.22</h5>
         <img src={ArrowDown} />
       </button>
-      <section className="account-settings" style={visibility ? { opacity: 1 } : { opacity: 0 }}>
+      <section
+        className="account-settings"
+        style={visibility ? { display: 'block' } : { display: 'none' }}
+      >
         <DropdownLink to="/">Account Details</DropdownLink>
         <DropdownLink to="/">Wallet</DropdownLink>
         <DropdownLink to="/">Settings</DropdownLink>
