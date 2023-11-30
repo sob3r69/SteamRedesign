@@ -1,35 +1,43 @@
 import axios from 'axios';
 import { GameTag } from '@/shared/components';
 import './BigGameCard.scss';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 type BigGameCardProps = {
   gameID: string;
 };
 
+type ScreenshotProps = {
+  path_thumbnail: string;
+};
+
 const BigGameCard = ({ gameID }: BigGameCardProps) => {
-  // useEffect(() => {
-  //   // axios({
-  //   //   method: 'get',
-  //   //   url: 'https://store.steampowered.com/api/appdetails?appids=' + gameID,
-  //   //   withCredentials: true,
-  //   //   headers: {
+  const [appName, setAppName] = useState('');
+  const [appDescription, setAppDescription] = useState('');
+  const [appScreenshots, setAppScreenshots] = useState<ScreenshotProps[]>([
+    { path_thumbnail: '' },
+    { path_thumbnail: '' },
+    { path_thumbnail: '' },
+    { path_thumbnail: '' },
+  ]);
 
-  //   //   },
-  //   // })
-  //   //   .then((response) => {
-  //   //     console.log(response.data);
-  //   //   })
-  //   //   .catch((error) => {
-  //   //     console.error(error);
-  //   //   });
-
-  //   // fetch('https://store.steampowered.com/api/appdetails?appids=' + gameID, {
-  //   //   mode: 'no-cors',
-  //   // }).then((response) => {
-  //   //   console.log(response);
-  //   // });
-  // }, []);
+  useEffect(() => {
+    axios({
+      method: 'get',
+      url: 'http://localhost:3000/game/' + gameID,
+      withCredentials: true,
+    })
+      .then((response) => {
+        console.log(response.data);
+        setAppName(response.data.name);
+        setAppDescription(response.data.short_description);
+        setAppScreenshots(response.data.screenshots);
+        console.log(appScreenshots);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
   return (
     <div className="gamecard_container">
       <img
@@ -39,32 +47,13 @@ const BigGameCard = ({ gameID }: BigGameCardProps) => {
         src={'https://cdn.cloudflare.steamstatic.com/steam/apps/' + gameID + '/capsule_616x353.jpg'}
       />
       <div className="gamecard_details">
-        <h2>Call of Duty: Modern Warfare</h2>
-        <h5>
-          Пройдите захватывающую кампанию или соберите команду на уникальной онлайн-площадке с
-          многочисленными испытаниями в 'Спецоперациях' в сочетании с сетевыми режимами и картами..
-        </h5>
+        <h2>{appName}</h2>
+        <h5>{appDescription}</h5>
         <div className="gamecard_details_screenshots">
-          <img
-            width={231}
-            height={111}
-            src="https://cdn.cloudflare.steamstatic.com/steam/apps/2000950/capsule_616x353.jpg?t=1678294805"
-          />
-          <img
-            width={231}
-            height={111}
-            src="https://cdn.cloudflare.steamstatic.com/steam/apps/2000950/capsule_616x353.jpg?t=1678294805"
-          />
-          <img
-            width={231}
-            height={111}
-            src="https://cdn.cloudflare.steamstatic.com/steam/apps/2000950/capsule_616x353.jpg?t=1678294805"
-          />
-          <img
-            width={231}
-            height={111}
-            src="https://cdn.cloudflare.steamstatic.com/steam/apps/2000950/capsule_616x353.jpg?t=1678294805"
-          />
+          <img width={231} height={111} src={appScreenshots[0].path_thumbnail} />
+          <img width={231} height={111} src={appScreenshots[1].path_thumbnail} />
+          <img width={231} height={111} src={appScreenshots[2].path_thumbnail} />
+          <img width={231} height={111} src={appScreenshots[3].path_thumbnail} />
         </div>
         <div className="gamecard_details_tags">
           <GameTag name="Action" />
