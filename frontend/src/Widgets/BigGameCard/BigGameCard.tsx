@@ -28,11 +28,10 @@ const BigGameCard = ({ gameID }: BigGameCardProps) => {
       withCredentials: true,
     })
       .then((response) => {
-        console.log(response.data);
-        setAppName(response.data.name);
-        setAppDescription(response.data.short_description);
-        setAppScreenshots(response.data.screenshots);
-        console.log(appScreenshots);
+        const data = response.data;
+        setAppName(data.name);
+        setAppDescription(data.short_description);
+        setAppScreenshots(data.screenshots);
       })
       .catch((error) => {
         console.error(error);

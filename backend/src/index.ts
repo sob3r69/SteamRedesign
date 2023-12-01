@@ -23,14 +23,14 @@ app.use(function (req, res, next) {
 });
 
 app.get('/', (req: Request, res: Response) => {
-  res.send('Express + TypeScript Server');
+  res.send('This is steam API bridge, to use it go to https://localhost:3000/game/{appId}');
 });
 
 app.get('/game/:id', (req: Request, res: Response) => {
   request.get(
     { url: 'https://store.steampowered.com/api/appdetails?appids=' + req.params.id, json: true },
     (error, response, body) => {
-      console.log(req.params);
+      console.log('Got request with params:', req.params);
       if (error) {
         res.send(error);
       } else {
