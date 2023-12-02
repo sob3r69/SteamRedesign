@@ -11,15 +11,31 @@ type ScreenshotProps = {
   path_thumbnail: string;
 };
 
+type AppData = {
+  name: string;
+  short_description: string;
+  screenshots: ScreenshotProps[];
+};
+
 const BigGameCard = ({ gameID }: BigGameCardProps) => {
-  const [appName, setAppName] = useState('');
-  const [appDescription, setAppDescription] = useState('');
-  const [appScreenshots, setAppScreenshots] = useState<ScreenshotProps[]>([
-    { path_thumbnail: '' },
-    { path_thumbnail: '' },
-    { path_thumbnail: '' },
-    { path_thumbnail: '' },
-  ]);
+  const [appData, setAppData] = useState<AppData>({
+    name: '',
+    short_description: '',
+    screenshots: [
+      {
+        path_thumbnail: '',
+      },
+      {
+        path_thumbnail: '',
+      },
+      {
+        path_thumbnail: '',
+      },
+      {
+        path_thumbnail: '',
+      },
+    ],
+  });
 
   useEffect(() => {
     axios({
@@ -29,9 +45,7 @@ const BigGameCard = ({ gameID }: BigGameCardProps) => {
     })
       .then((response) => {
         const data = response.data;
-        setAppName(data.name);
-        setAppDescription(data.short_description);
-        setAppScreenshots(data.screenshots);
+        setAppData(data);
       })
       .catch((error) => {
         console.error(error);
@@ -46,13 +60,13 @@ const BigGameCard = ({ gameID }: BigGameCardProps) => {
         src={'https://cdn.cloudflare.steamstatic.com/steam/apps/' + gameID + '/capsule_616x353.jpg'}
       />
       <div className="gamecard_details">
-        <h2>{appName}</h2>
-        <h5>{appDescription}</h5>
+        <h2>{appData.name}</h2>
+        <h5>{appData.short_description}</h5>
         <div className="gamecard_details_screenshots">
-          <img width={231} height={111} src={appScreenshots[0].path_thumbnail} />
-          <img width={231} height={111} src={appScreenshots[1].path_thumbnail} />
-          <img width={231} height={111} src={appScreenshots[2].path_thumbnail} />
-          <img width={231} height={111} src={appScreenshots[3].path_thumbnail} />
+          <img width={231} height={111} src={appData.screenshots[0].path_thumbnail} />
+          <img width={231} height={111} src={appData.screenshots[1].path_thumbnail} />
+          <img width={231} height={111} src={appData.screenshots[2].path_thumbnail} />
+          <img width={231} height={111} src={appData.screenshots[3].path_thumbnail} />
         </div>
         <div className="gamecard_details_tags">
           <GameTag name="Action" />
