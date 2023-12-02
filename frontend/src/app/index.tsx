@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { ClientHeader } from '@/Widgets';
-import { CommunityPage, LibraryPage, StorePage, UserPage } from '@/Pages';
+import { ClientHeader } from '@/widgets';
+import { CommunityPage, LibraryPage, StorePage, UserPage } from '@/pages';
 import './index.scss';
-import DownloadsPage from '@/Pages/DownloadsPage';
+import DownloadsPage from '@/pages/DownloadsPage';
 
 function App() {
   return (

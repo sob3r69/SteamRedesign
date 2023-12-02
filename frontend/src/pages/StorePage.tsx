@@ -1,4 +1,4 @@
-import { BigGameCard } from '@/Widgets';
+import { BigGameCard } from '@/widgets';
 
 const StorePage = () => {
   return (
