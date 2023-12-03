@@ -1,7 +1,6 @@
-import { GameTag } from '@/shared/components';
+import { BuyButton, GameTag, WishlistButton } from '@/shared/components';
 import './BigGameCard.scss';
 import { useAppDataFetch } from '@/shared/hooks';
-
 type BigGameCardProps = {
   gameID: string;
 };
@@ -14,13 +13,13 @@ const BigGameCard = ({ gameID }: BigGameCardProps) => {
     <div className="gamecard_container">
       <img
         className="gamecard_cover"
-        width={616}
-        height={353}
+        width={766}
+        height={458}
         src={'https://cdn.cloudflare.steamstatic.com/steam/apps/' + gameID + '/capsule_616x353.jpg'}
       />
       <div className="gamecard_details">
-        <h2>{appData.name}</h2>
-        <h5>{appData.short_description}</h5>
+        <h2 className="gamecard_details_name">{appData.name}</h2>
+        <h5 className="gamecard_details_description">{appData.short_description}</h5>
         <div className="gamecard_details_screenshots">
           <img width={231} height={111} src={appData.screenshots[0].path_thumbnail} />
           <img width={231} height={111} src={appData.screenshots[1].path_thumbnail} />
@@ -30,7 +29,13 @@ const BigGameCard = ({ gameID }: BigGameCardProps) => {
         <div className="gamecard_details_tags">
           <GameTag name="Action" />
         </div>
-        <div className="gamecard_details_price">price</div>
+        <div className="gamecard_details_interactions">
+          <WishlistButton />
+          <div className="gamecard_details_interactions_price">
+            <h4>{appData.price_overview.final_formatted}</h4>
+            <BuyButton text="Buy Now" />
+          </div>
+        </div>
       </div>
     </div>
   );

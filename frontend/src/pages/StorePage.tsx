@@ -6,7 +6,7 @@ const StorePage = () => {
       <main>
         <div className="store-featured">
           <h2>FEATURED</h2>
-          <BigGameCard gameID="632360" />
+          <BigGameCard gameID="1245620" />
         </div>
       </main>
     </>

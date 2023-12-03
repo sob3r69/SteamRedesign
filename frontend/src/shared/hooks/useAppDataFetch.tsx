@@ -21,6 +21,12 @@ const useAppDataFetch = (appID: string) => {
         path_thumbnail: '',
       },
     ],
+    price_overview: {
+      currency: '',
+      initial: 0,
+      final: 0,
+      final_formatted: '',
+    },
   });
 
   useEffect(() => {
