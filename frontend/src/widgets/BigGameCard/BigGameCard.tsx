@@ -1,56 +1,15 @@
-import axios from 'axios';
 import { GameTag } from '@/shared/components';
 import './BigGameCard.scss';
-import { useEffect, useState } from 'react';
+import { useAppDataFetch } from '@/shared/hooks';
 
 type BigGameCardProps = {
   gameID: string;
 };
 
-type ScreenshotProps = {
-  path_thumbnail: string;
-};
-
-type AppData = {
-  name: string;
-  short_description: string;
-  screenshots: ScreenshotProps[];
-};
-
 const BigGameCard = ({ gameID }: BigGameCardProps) => {
-  const [appData, setAppData] = useState<AppData>({
-    name: '',
-    short_description: '',
-    screenshots: [
-      {
-        path_thumbnail: '',
-      },
-      {
-        path_thumbnail: '',
-      },
-      {
-        path_thumbnail: '',
-      },
-      {
-        path_thumbnail: '',
-      },
-    ],
-  });
+  const { appData, error } = useAppDataFetch(gameID);
+  if (error) console.error(error);
 
-  useEffect(() => {
-    axios({
-      method: 'get',
-      url: 'http://localhost:3000/game/' + gameID,
-      withCredentials: true,
-    })
-      .then((response) => {
-        const data = response.data;
-        setAppData(data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
   return (
     <div className="gamecard_container">
       <img
