@@ -1,6 +1,13 @@
+@import '@/app/styles/vars';
+
 .wishlist_button {
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 12.5px;
   padding-bottom: 12.5px;
+}
+
+.wishlist_button:hover {
+  background-color: $backgroundHover;
+  cursor: pointer;
 }

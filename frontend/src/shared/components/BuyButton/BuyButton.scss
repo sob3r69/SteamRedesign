@@ -7,3 +7,8 @@
   padding-top: 12.5px;
   padding-bottom: 12.5px;
 }
+
+.buy_button:hover {
+  background-color: $colorPrimary;
+  cursor: pointer;
+}
