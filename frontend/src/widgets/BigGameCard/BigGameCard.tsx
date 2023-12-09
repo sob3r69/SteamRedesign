@@ -1,4 +1,4 @@
-import { BuyButton, GameTag, WishlistButton } from '@/shared/components';
+import { BuyButton, GameTag, PriceTag, WishlistButton } from '@/shared/components';
 import './BigGameCard.scss';
 import { useAppDataFetch } from '@/shared/hooks';
 type BigGameCardProps = {
@@ -32,7 +32,7 @@ const BigGameCard = ({ gameID }: BigGameCardProps) => {
         <div className="gamecard_details_interactions">
           <WishlistButton />
           <div className="gamecard_details_interactions_price">
-            <h4>{appData.price_overview.final_formatted}</h4>
+            <PriceTag priceData={appData.price_overview} />
             <BuyButton text="Buy Now" />
           </div>
         </div>

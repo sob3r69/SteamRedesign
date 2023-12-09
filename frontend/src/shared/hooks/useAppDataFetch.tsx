@@ -23,9 +23,11 @@ const useAppDataFetch = (appID: string) => {
     ],
     price_overview: {
       currency: '',
+      discount_percent: 0,
       initial: 0,
       final: 0,
       final_formatted: '',
+      initial_formatted: '',
     },
   });
 

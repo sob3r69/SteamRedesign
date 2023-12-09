@@ -6,12 +6,16 @@ type AppData = {
   name: string;
   short_description: string;
   screenshots: ScreenshotProps[];
-  price_overview: {
-    currency: string;
-    initial: number;
-    final: number;
-    final_formatted: string;
-  };
+  price_overview: PriceData;
 };
 
-export type { ScreenshotProps, AppData };
+type PriceData = {
+  currency: string;
+  discount_percent: number;
+  initial: number;
+  final: number;
+  final_formatted: string;
+  initial_formatted: string;
+};
+
+export type { ScreenshotProps, AppData, PriceData };

@@ -1,3 +1,3 @@
-import { AppData } from './DataTypes';
+import { AppData, PriceData } from './DataTypes';
 
-export type { AppData };
+export type { AppData, PriceData };
