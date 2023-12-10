@@ -1,10 +1,13 @@
-import React from 'react';
 import './Wishlistbutton.scss';
 
-const WishlistButton = () => {
+type WishlistButtonProps = {
+  type?: 'compact' | 'large';
+};
+
+const WishlistButton = ({ type }: WishlistButtonProps = {}) => {
   return (
     <button className="wishlist_button">
-      <h4>Wishlist</h4>
+      {type === 'compact' ? <h4>W</h4> : <h4>Wishlist</h4>}
     </button>
   );
 };

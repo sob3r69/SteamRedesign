@@ -5,7 +5,6 @@ type PriceTagProps = {
 };
 
 const PriceTag = ({ priceData }: PriceTagProps) => {
-  console.log(priceData);
   return priceData ? (
     priceData.discount_percent === 0 ? (
       <h4 className="price_tag">{priceData.final_formatted}</h4>
@@ -21,7 +20,7 @@ const PriceTag = ({ priceData }: PriceTagProps) => {
       </section>
     )
   ) : (
-    <h4 className="price_tag">Free</h4>
+    <h4 className="price_tag_free">Free</h4>
   );
 };
 
