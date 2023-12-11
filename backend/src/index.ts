@@ -1,5 +1,6 @@
 import express, { Express, Request, Response } from 'express';
 import request from 'request';
+import cheerio, { Element } from 'cheerio';
 
 const app: Express = express();
 const port = 3000;
@@ -24,6 +25,24 @@ app.use(function (req, res, next) {
 
 app.get('/', (req: Request, res: Response) => {
   res.send('This is steam API bridge, to use it go to https://localhost:3000/game/{appId}');
+});
+
+app.get('/top_sellers', async (req: Request, res: Response) => {
+  request.get(
+    { url: 'https://store.steampowered.com/search/?filter=topsellers', json: true },
+    (error, response, body) => {
+      if (error) {
+        res.send(error);
+      } else {
+        const $ = cheerio.load(body);
+        const someData: unknown[] = [];
+        $('.search_result_row').each((i, el) => {
+          someData.push($(el).data('ds-appid'));
+        });
+        res.send(someData);
+      }
+    }
+  );
 });
 
 app.get('/game/:id', (req: Request, res: Response) => {
