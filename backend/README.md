@@ -7,6 +7,7 @@ Stack:
 - Node.js
 - Express
 - Request
+- Cheerio
 
 To run the server:
 
