@@ -4,7 +4,6 @@ const useOutsideClick = (callback: (value: boolean) => void) => {
   const ref = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    console.log('render');
     const handleClickOutside = (event: MouseEvent) => {
       if (ref.current && !ref.current.contains(event.target as Node)) {
         callback(false);

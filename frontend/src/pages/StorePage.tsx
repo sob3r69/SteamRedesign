@@ -1,19 +1,8 @@
+import { useTopSellers } from '@/shared/hooks';
 import { BigGameCard, SmallGameCard } from '@/widgets';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
 
 const StorePage = () => {
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    axios({
-      method: 'get',
-      url: 'http://localhost:3000/top_sellers',
-      withCredentials: true,
-    }).then((response) => {
-      const res = response.data;
-      setData(res);
-    });
-  }, []);
+  const { data, error } = useTopSellers();
   return (
     <>
       <main>
