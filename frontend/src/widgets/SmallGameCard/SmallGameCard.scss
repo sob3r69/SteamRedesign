@@ -1,6 +1,17 @@
 @import '@/app/styles/vars';
 
 .small_gamecard_container {
+  border-radius: 3px;
   background-color: $backgroundDark;
   padding: 15px;
+}
+
+.small_gamecard_content {
+  display: flex;
+  flex-direction: column;
+  width: 379px;
+}
+
+.small_gamecard_title {
+  white-space: nowrap;
 }

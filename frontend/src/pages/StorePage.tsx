@@ -11,7 +11,7 @@ const StorePage = () => {
           <BigGameCard gameID="730" />
           <BigGameCard gameID="632360" />
         </div>
-        <div>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px' }}>
           {data.map((appId: string) => (
             <SmallGameCard gameID={appId} key={appId} />
           ))}

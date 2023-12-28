@@ -11,17 +11,23 @@ const SmallGameCard = ({ gameID }: SmallGameCardProps) => {
   if (error) console.error(error);
   return (
     <div className="small_gamecard_container">
-      <img
-        className="gamecard_cover"
-        height={197}
-        width={319}
-        src={'https://cdn.cloudflare.steamstatic.com/steam/apps/' + gameID + '/capsule_616x353.jpg'}
-      />
-      <h2>{appData.name}</h2>
-      <div className="gamecard_details_interactions">
-        <div className="gamecard_details_platforms">todo</div>
-        <PriceTag priceData={appData.price_overview} />
-        <WishlistButton type="compact" />
+      <div className="small_gamecard_content">
+        <img
+          className="gamecard_cover"
+          height={197}
+          width={379}
+          src={
+            'https://cdn.cloudflare.steamstatic.com/steam/apps/' + gameID + '/capsule_616x353.jpg'
+          }
+        />
+        <h2 className="small_gamecard_title">{appData.name}</h2>
+        <div className="gamecard_details_interactions">
+          <div className="gamecard_details_platforms">todo platforms</div>
+          <div className="gamecard_details_interactions_price">
+            <PriceTag priceData={appData.price_overview} />
+            <WishlistButton type="compact" />
+          </div>
+        </div>
       </div>
     </div>
   );
