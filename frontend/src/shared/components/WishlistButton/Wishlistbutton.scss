@@ -7,6 +7,16 @@
   padding-bottom: 12.5px;
 }
 
+.wishlist_button_selected {
+  background-color: $backgroundHover;
+}
+
+.wishlist_button_text {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
 .wishlist_button:hover {
   background-color: $backgroundHover;
   cursor: pointer;

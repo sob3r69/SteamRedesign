@@ -9,14 +9,20 @@ type WishlistButtonProps = {
 const WishlistButton = ({ type }: WishlistButtonProps = {}) => {
   const [selected, setSelected] = useState(false);
   return (
-    <button className="wishlist_button">
+    <button className={'wishlist_button' + (selected ? ' wishlist_button_selected' : '')}>
       {type === 'compact' ? (
         <img
           src={selected ? WishlistLogoSelected : WishlistLogo}
           onClick={() => setSelected(!selected)}
         />
       ) : (
-        <h4>Wishlist</h4>
+        <h4 className="wishlist_button_text">
+          <img
+            src={selected ? WishlistLogoSelected : WishlistLogo}
+            onClick={() => setSelected(!selected)}
+          />
+          {selected ? '' : 'Wishlist'}
+        </h4>
       )}
     </button>
   );

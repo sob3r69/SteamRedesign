@@ -22,7 +22,7 @@ const SmallGameCard = ({ gameID }: SmallGameCardProps) => {
         />
         <h2 className="small_gamecard_title">{appData.name}</h2>
         <div className="gamecard_details_interactions">
-          <div className="gamecard_details_platforms">todo platforms</div>
+          <div className="gamecard_details_platforms">platforms</div>
           <div className="gamecard_details_interactions_price">
             <PriceTag priceData={appData.price_overview} />
             <WishlistButton type="compact" />
