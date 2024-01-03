@@ -1,0 +1,16 @@
+.games_slider {
+  display: flex;
+  gap: 20px;
+  width: 1362px;
+  .slider_container {
+    overflow: hidden;
+    width: 100%;
+  }
+  .slider {
+    display: flex;
+    gap: 20px;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+  }
+}

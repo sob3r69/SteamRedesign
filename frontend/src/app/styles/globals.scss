@@ -45,4 +45,8 @@ button {
   background-color: $backgroundHighlight;
   border: none;
   border-radius: 3px;
+  &:hover {
+    background-color: $backgroundHover;
+    cursor: pointer;
+  }
 }

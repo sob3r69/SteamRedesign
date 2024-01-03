@@ -3,10 +3,11 @@
 .gamecard_container {
   align-items: center;
   display: flex;
+  flex-shrink: 0;
   background-color: $backgroundDark;
   border-radius: 3px;
   padding: 15px;
-  max-width: 1250px;
+  width: 1250px;
   max-height: 488px;
   margin-top: 35px;
 }
