@@ -5,6 +5,7 @@ import NotificationIcon from './Notifications.svg';
 import SteamLogo from './SteamLogo.png';
 import WishlistLogo from './Wishlist.svg';
 import WishlistLogoSelected from './Wishlist_selected.svg';
+import BigArrow from './BigArrow.svg';
 
 export {
   RouteArrow,
@@ -14,4 +15,5 @@ export {
   ArrowDown,
   WishlistLogo,
   WishlistLogoSelected,
+  BigArrow,
 };
