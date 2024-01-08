@@ -15,8 +15,8 @@ const WishlistButton = ({ type }: WishlistButtonProps = {}) => {
     >
       {type === 'compact' ? (
         <img
+          className="wishlist_button_compact"
           src={selected ? WishlistLogoSelected : WishlistLogo}
-          onClick={() => setSelected(!selected)}
         />
       ) : (
         <h4 className="wishlist_button_text">

@@ -53,6 +53,7 @@ app.get('/game/:id', (req: Request, res: Response) => {
       if (error) {
         res.send(error);
       } else {
+        console.log(body[req.params.id].data);
         res.send(body[req.params.id].data);
       }
     }

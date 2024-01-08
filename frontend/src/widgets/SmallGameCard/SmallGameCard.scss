@@ -4,14 +4,33 @@
   border-radius: 3px;
   background-color: $backgroundDark;
   padding: 15px;
+  .small_gamecard_content {
+    display: flex;
+    flex-direction: column;
+    width: 379px;
+  }
+  .small_gamecard_title {
+    white-space: nowrap;
+  }
 }
 
-.small_gamecard_content {
-  display: flex;
-  flex-direction: column;
-  width: 379px;
-}
-
-.small_gamecard_title {
-  white-space: nowrap;
+.wide_gamecard_container {
+  border-radius: 3px;
+  background-color: $backgroundDark;
+  padding: 15px;
+  width: 626px;
+  max-height: 117px;
+  .wide_gamecard_content {
+    display: flex;
+    flex-direction: row;
+  }
+  .wide_gamecard_info {
+    margin-left: 21px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .wide_gamecard_title {
+    white-space: nowrap;
+  }
 }
