@@ -6,7 +6,7 @@ type TimeSliderProps = {
   autoPlayTime: number;
 };
 
-const TimeSlider = ({ autoPlayTime, isActive }: TimeSliderProps) => {
+const ProgressBar = ({ autoPlayTime, isActive }: TimeSliderProps) => {
   const [fillWidth, setFillWidth] = useState(0);
 
   useEffect(() => {
@@ -35,4 +35,4 @@ const TimeSlider = ({ autoPlayTime, isActive }: TimeSliderProps) => {
   );
 };
 
-export default TimeSlider;
+export default ProgressBar;

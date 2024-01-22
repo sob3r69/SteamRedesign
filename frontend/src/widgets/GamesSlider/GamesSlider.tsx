@@ -1,25 +1,28 @@
 import { useEffect, useState } from 'react';
 import { BigGameCard } from '..';
 import './GamesSlider.scss';
-import { ProgressBar } from '@/shared/components';
+import { NavDots } from '@/shared/components';
 import { BigArrow } from '@/app/assets';
+import GamesSliderPage from '@/shared/components/GamesSliderPage/GamesSliderPage';
+import { divideArray } from '@/shared/helpers';
 
 type GamesSliderProps = {
-  apps: string[];
+  data: string[];
   autoPlay?: boolean;
   autoPlayTime?: number;
-  cardType?: 'small' | 'medium' | 'big';
+  type: 'slide' | 'page';
 };
 
-const GamesSlider = ({ apps, autoPlay, autoPlayTime }: GamesSliderProps) => {
+const GamesSlider = ({ data, autoPlay, autoPlayTime, type }: GamesSliderProps) => {
+  const dividedApps = type === 'page' ? divideArray(data, 4) : [];
   const [slide, setSlide] = useState(0);
   const changeSlide = (direction = 1) => {
     let slideNumber = 0;
 
     if (slide + direction < 0) {
-      slideNumber = apps.length - 1;
+      slideNumber = type === 'page' ? dividedApps.length - 1 : data.length - 1;
     } else {
-      slideNumber = (slide + direction) % apps.length;
+      slideNumber = (slide + direction) % (type === 'page' ? dividedApps.length : data.length);
     }
 
     setSlide(slideNumber);
@@ -35,7 +38,7 @@ const GamesSlider = ({ apps, autoPlay, autoPlayTime }: GamesSliderProps) => {
     return () => {
       clearInterval(interval);
     };
-  }, [apps.length, slide]);
+  }, [data.length, slide]);
 
   return (
     <div className="games_slider">
@@ -43,17 +46,31 @@ const GamesSlider = ({ apps, autoPlay, autoPlayTime }: GamesSliderProps) => {
         <img id="arrowLeft" src={BigArrow} />
       </button>
       <div className="slider_container">
-        <div className="slider" style={{ transform: `translateX(-${slide * 100}%)` }}>
-          {apps.map((appID: string) => (
-            <BigGameCard gameID={appID} key={appID} />
-          ))}
+        <div className="slides" style={{ transform: `translateX(-${slide * 100}%)` }}>
+          {type === 'slide' ? (
+            data.map((appID: string) => <BigGameCard gameID={appID} key={appID} />)
+          ) : (
+            <GamesSliderPage key={slide} apps={dividedApps} />
+          )}
         </div>
         <div className="slider_buttons">
-          {apps.map((appID: string, index: number) => (
-            <button className="slider_button" key={appID} onClick={() => setSlide(index)}>
-              <ProgressBar isActive={slide === index} autoPlayTime={autoPlayTime!} key={appID} />
-            </button>
-          ))}
+          {type === 'page'
+            ? dividedApps.map((data: string[], index: number) => (
+                <NavDots
+                  key={index}
+                  onClick={() => setSlide(index)}
+                  time={autoPlayTime!}
+                  isActive={slide === index}
+                />
+              ))
+            : data.map((appID: string, index: number) => (
+                <NavDots
+                  key={appID}
+                  isActive={slide === index}
+                  onClick={() => setSlide(index)}
+                  time={autoPlayTime!}
+                />
+              ))}
         </div>
       </div>
       <button className="slider_button" onClick={() => changeSlide(1)}>
