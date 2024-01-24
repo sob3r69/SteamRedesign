@@ -1,10 +1,10 @@
 import { useTopSellers } from '@/shared/hooks';
-import { GamesSlider, SmallGameCard } from '@/widgets';
+import { GamesSlider } from '@/widgets';
 
 const StorePage = () => {
   const { data, error } = useTopSellers();
   const appsEx = ['730', '632360', '570'];
-  // if (error) console.error(error);
+  if (error) console.error(error);
   return (
     <>
       <main>
@@ -13,7 +13,7 @@ const StorePage = () => {
           <GamesSlider data={appsEx} autoPlay={true} autoPlayTime={5000} type="slide" />
         </div>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', marginTop: '20px' }}>
-          <GamesSlider data={data} autoPlay={true} autoPlayTime={5000} type="page" />
+          {/* <GamesSlider data={data} autoPlay={true} autoPlayTime={5000} type="page" /> */}
           {/* {appsEx.map((appId: string) => (
             <SmallGameCard type="wide" gameID={appId} key={appId} />
           ))} */}
