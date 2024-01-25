@@ -1,10 +1,10 @@
 import { useTopSellers } from '@/shared/hooks';
-import { GamesSlider, SmallGameCard } from '@/widgets';
+import { GamesSlider } from '@/widgets';
 
 const StorePage = () => {
   const { data, error } = useTopSellers();
   const appsEx = ['730', '632360', '570'];
-  // if (error) console.error(error);
+  if (error) console.error(error);
   return (
     <>
       <main>

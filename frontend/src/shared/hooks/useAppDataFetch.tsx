@@ -34,7 +34,7 @@ const useAppDataFetch = (appID: string) => {
   useEffect(() => {
     axios({
       method: 'get',
-      url: 'http://localhost:3000/game/' + appID,
+      url: 'http://localhost:3000/app/' + appID,
       withCredentials: true,
     })
       .then((response) => {
