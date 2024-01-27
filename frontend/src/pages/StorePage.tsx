@@ -13,10 +13,7 @@ const StorePage = () => {
           <GamesSlider data={appsEx} autoPlay={true} autoPlayTime={5000} type="slide" />
         </div>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', marginTop: '20px' }}>
-          <GamesSlider data={data} autoPlay={true} autoPlayTime={5000} type="page" />
-          {/* {appsEx.map((appId: string) => (
-            <SmallGameCard type="wide" gameID={appId} key={appId} />
-          ))} */}
+          <GamesSlider data={data} autoPlay={false} autoPlayTime={20000} type="page" />
         </div>
       </main>
     </>

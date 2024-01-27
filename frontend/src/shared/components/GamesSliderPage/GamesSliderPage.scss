@@ -1,6 +1,9 @@
-.games_slider_page {
-  display: flex;
-  gap: 20px;
+.slider_page_row {
+  flex: 0 0 1281px;
   width: 1362px;
-  height: 600px;
+  // min-width: 1362px;
+  display: flex;
+  gap: 26px;
+  flex-direction: row;
+  flex-wrap: wrap;
 }

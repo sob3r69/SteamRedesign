@@ -14,7 +14,7 @@ type GamesSliderProps = {
 };
 
 const GamesSlider = ({ data, autoPlay, autoPlayTime, type }: GamesSliderProps) => {
-  const dividedApps = type === 'page' ? divideArray(data, 4) : [];
+  const dividedApps = type === 'page' ? divideArray(data, 6) : [];
   const [slide, setSlide] = useState(0);
   const changeSlide = (direction = 1) => {
     let slideNumber = 0;
@@ -48,16 +48,18 @@ const GamesSlider = ({ data, autoPlay, autoPlayTime, type }: GamesSliderProps) =
       <div className="slider_container">
         <div className="slides" style={{ transform: `translateX(-${slide * 100}%)` }}>
           {type === 'slide' ? (
-            data.map((appID: string) => <BigGameCard gameID={appID} key={appID} />)
+            data.map((appID: string, index) => (
+              <BigGameCard gameID={appID} key={'slider_bigcard_' + index} />
+            ))
           ) : (
-            <GamesSliderPage key={slide} apps={dividedApps} />
+            <GamesSliderPage apps={dividedApps} />
           )}
         </div>
         <div className="slider_buttons">
           {type === 'page'
             ? dividedApps.map((data: string[], index: number) => (
                 <NavDots
-                  key={index}
+                  key={'page_dots_' + index}
                   onClick={() => setSlide(index)}
                   time={autoPlayTime!}
                   isActive={slide === index}
@@ -65,7 +67,7 @@ const GamesSlider = ({ data, autoPlay, autoPlayTime, type }: GamesSliderProps) =
               ))
             : data.map((appID: string, index: number) => (
                 <NavDots
-                  key={appID}
+                  key={'slider_bigcard_dots_' + index}
                   isActive={slide === index}
                   onClick={() => setSlide(index)}
                   time={autoPlayTime!}
