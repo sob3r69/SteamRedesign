@@ -2,8 +2,15 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { AppData } from '@/shared/types';
 
+/**
+ * Custom React hook to fetch data for a specific app
+ * @param {string} appID - The ID of the app to fetch data for
+ * @returns The fetched app data and any potential error
+ */
+
 const useAppDataFetch = (appID: string) => {
   const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [appData, setAppData] = useState<AppData>({
     name: '',
     short_description: '',
@@ -40,13 +47,15 @@ const useAppDataFetch = (appID: string) => {
       .then((response) => {
         const data = response.data;
         setAppData(data);
+        setIsLoading(false);
       })
       .catch((error) => {
         console.error(error);
         setError(error.message);
+        setIsLoading(false);
       });
   }, [appID]);
-  return { appData, error };
+  return { appData, error, isLoading };
 };
 
 export default useAppDataFetch;

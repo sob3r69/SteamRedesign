@@ -19,6 +19,8 @@
   background-color: $backgroundDark;
   padding: 15px;
   min-width: 596px;
+  min-height: 87px;
+  max-height: 87px;
   flex: 0 0 117px;
   .wide_gamecard_content {
     display: flex;

@@ -6,6 +6,7 @@ import BuyButton from './BuyButton/BuyButton';
 import PriceTag from './PriceTag/PriceTag';
 import ProgressBar from './ProgressBar/ProgressBar';
 import NavDots from './NavDots/NavDots';
+import Loading from './Loading/Loading';
 
 export {
   SocialButton,
@@ -16,4 +17,5 @@ export {
   PriceTag,
   ProgressBar,
   NavDots,
+  Loading,
 };
