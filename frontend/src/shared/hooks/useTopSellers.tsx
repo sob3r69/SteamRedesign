@@ -1,6 +1,11 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
+/**
+ * Custom React hook to fetch top sellers data
+ * @returns The fetched top sellers data and any potential error
+ */
+
 const useTopSellers = () => {
   const [error, setError] = useState<string | null>(null);
   const [data, setData] = useState([]);
