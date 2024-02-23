@@ -10,9 +10,15 @@ To run the project:
 2. Run two terminals
 3. Navigate to backend folder using `cd backend`
 4. Navigate to frontend folder using `cd frontend`
-5. And run the commands listed below on each terminal
+5. And run the commands listed below in `frontend` folder
 
 ```
  npm run install
  npm run dev
+```
+
+6. Run the commands listed below in `backend` folder
+
+```
+go run main.go
 ```
