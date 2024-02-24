@@ -52,7 +52,6 @@ const useAppDataFetch = (appID: string) => {
       .catch((error) => {
         console.error(error);
         setError(error.message);
-        setIsLoading(false);
       });
   }, [appID]);
   return { appData, error, isLoading };

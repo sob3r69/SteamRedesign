@@ -1,16 +1,37 @@
 import { useAppDataFetch } from '@/shared/hooks';
 import './SmallGameCard.scss';
 import { Loading, PriceTag, WishlistButton } from '@/shared/components';
+import { memo } from 'react';
 
 type SmallGameCardProps = {
   gameID: string;
   type?: 'compact' | 'wide';
 };
 
-const SmallGameCard = ({ gameID, type }: SmallGameCardProps) => {
+/**
+ * This component was memoized to improve performance on Slider state updates
+ * @param type - 'compact' or 'wide'
+ */
+const SmallGameCard = memo(({ gameID, type }: SmallGameCardProps) => {
   const { appData, error, isLoading } = useAppDataFetch(gameID);
-  if (error) console.error(error);
-  else if (type === 'wide')
+  // TODO: Add error handling
+  // This is a temporary solution to handle errors
+  if (error) {
+    console.error(error);
+    if (type === 'wide')
+      return (
+        <div className="wide_gamecard_container">
+          <Loading />
+        </div>
+      );
+    else if (type === 'compact') {
+      return (
+        <div className="small_gamecard_container">
+          <Loading />
+        </div>
+      );
+    }
+  } else if (type === 'wide')
     return (
       <div className="wide_gamecard_container">
         {isLoading ? (
@@ -70,6 +91,6 @@ const SmallGameCard = ({ gameID, type }: SmallGameCardProps) => {
         )}
       </div>
     );
-};
+});
 
 export default SmallGameCard;
