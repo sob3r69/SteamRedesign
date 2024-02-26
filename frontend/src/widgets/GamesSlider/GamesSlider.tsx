@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
 import { BigGameCard } from '..';
 import './GamesSlider.scss';
-import { NavDots } from '@/shared/components';
+import { GamesSliderPage, NavDots } from '@/shared/components';
 import { BigArrow } from '@/app/assets';
-import GamesSliderPage from '@/shared/components/GamesSliderPage/GamesSliderPage';
 import { divideArray } from '@/shared/helpers';
 
 type GamesSliderProps = {

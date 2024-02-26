@@ -47,11 +47,13 @@ const useAppDataFetch = (appID: string) => {
       .then((response) => {
         const data = response.data;
         setAppData(data);
-        setIsLoading(false);
       })
       .catch((error) => {
         console.error(error);
         setError(error.message);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }, [appID]);
   return { appData, error, isLoading };

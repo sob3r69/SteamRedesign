@@ -7,6 +7,7 @@ import PriceTag from './PriceTag/PriceTag';
 import ProgressBar from './ProgressBar/ProgressBar';
 import NavDots from './NavDots/NavDots';
 import Loading from './Loading/Loading';
+import GamesSliderPage from './GamesSliderPage/GamesSliderPage';
 
 export {
   SocialButton,
@@ -18,4 +19,5 @@ export {
   ProgressBar,
   NavDots,
   Loading,
+  GamesSliderPage,
 };
