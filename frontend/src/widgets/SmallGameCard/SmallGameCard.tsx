@@ -3,6 +3,7 @@ import { Loading, PriceTag, WishlistButton } from '@/shared/components';
 import { memo } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { getAppData } from '@/entities/app/api';
+import { ErrorHandler } from '..';
 
 type SmallGameCardProps = {
   gameID: string;
@@ -22,20 +23,7 @@ const SmallGameCard = memo(({ gameID, type }: SmallGameCardProps) => {
   // TODO: Add error handling
   // This is a temporary solution to handle errors
   if (error) {
-    console.error(error);
-    if (type === 'wide')
-      return (
-        <div className="wide_gamecard_container">
-          <Loading />
-        </div>
-      );
-    else if (type === 'compact') {
-      return (
-        <div className="small_gamecard_container">
-          <Loading />
-        </div>
-      );
-    }
+    <ErrorHandler type="compact" error={error} />;
   } else if (type === 'wide')
     return (
       <div className="wide_gamecard_container">

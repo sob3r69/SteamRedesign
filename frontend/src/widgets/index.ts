@@ -4,5 +4,6 @@ import AccountCard from './AccountCard/AccountCard';
 import BigGameCard from './BigGameCard/BigGameCard';
 import SmallGameCard from './SmallGameCard/SmallGameCard';
 import GamesSlider from './GamesSlider/GamesSlider';
+import ErrorHandler from './ErrorHandler/ErrorHandler';
 
-export { ClientHeader, Footer, AccountCard, BigGameCard, SmallGameCard, GamesSlider };
+export { ClientHeader, Footer, AccountCard, BigGameCard, SmallGameCard, GamesSlider, ErrorHandler };
