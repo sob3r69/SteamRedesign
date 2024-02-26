@@ -1,18 +1,13 @@
 import './SmallGameCard.scss';
 import { Loading, PriceTag, WishlistButton } from '@/shared/components';
 import { memo } from 'react';
-import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
+import { getAppData } from '@/entities/app/api';
 
 type SmallGameCardProps = {
   gameID: string;
   type?: 'compact' | 'wide';
 };
-
-async function getAppData(gameID: string) {
-  const { data } = await axios.get(`http://localhost:3000/app/${gameID}`);
-  return data;
-}
 
 /**
  * This component was memoized to improve performance on Slider state updates
