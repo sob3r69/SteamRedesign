@@ -1,6 +1,6 @@
 import SocialButton from './SocialButton/SocialButton';
 import DropdownLink from './DropdownLink/DropdownLink';
-import GameTag from './GameTag/GameTag';
+import AppTag from './AppTag/AppTag';
 import WishlistButton from './WishlistButton/Wishlistbutton';
 import BuyButton from './BuyButton/BuyButton';
 import PriceTag from './PriceTag/PriceTag';
@@ -12,7 +12,7 @@ import GamesSliderPage from './GamesSliderPage/GamesSliderPage';
 export {
   SocialButton,
   DropdownLink,
-  GameTag,
+  AppTag,
   WishlistButton,
   BuyButton,
   PriceTag,

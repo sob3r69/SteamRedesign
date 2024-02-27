@@ -1,9 +1,19 @@
-import { BuyButton, GameTag, Loading, PriceTag, WishlistButton } from '@/shared/components';
-import './BigGameCard.scss';
 import { memo } from 'react';
 import { ErrorHandler } from '..';
 import { useQuery } from '@tanstack/react-query';
 import { getAppData } from '@/entities/app/api';
+import { BuyButton, Loading, PriceTag, WishlistButton } from '@/shared/components';
+import {
+  BuyContainer,
+  Cover,
+  Description,
+  Info,
+  Interactions,
+  Screenshots,
+  Tags,
+  Title,
+} from '@/entities/app/ui';
+
 type BigGameCardProps = {
   gameID: string;
 };
@@ -16,45 +26,30 @@ const BigGameCard = memo(({ gameID }: BigGameCardProps) => {
     queryKey: ['app', gameID],
     queryFn: () => getAppData(gameID),
   });
+
   if (error) {
     return <ErrorHandler type="big" error={error} />;
-  } else {
+  } else if (data) {
     return (
       <div className="gamecard_container">
         {isLoading ? (
           <Loading />
         ) : (
           <>
-            <img
-              className="gamecard_cover"
-              width={766}
-              height={458}
-              src={
-                'https://cdn.cloudflare.steamstatic.com/steam/apps/' +
-                gameID +
-                '/capsule_616x353.jpg'
-              }
-            />
-            <div className="gamecard_details">
-              <h2 className="gamecard_details_name">{data.name}</h2>
-              <h5 className="gamecard_details_description">{data.short_description}</h5>
-              <div className="gamecard_details_screenshots">
-                <img width={231} height={111} src={data.screenshots[0].path_thumbnail} />
-                <img width={231} height={111} src={data.screenshots[1].path_thumbnail} />
-                <img width={231} height={111} src={data.screenshots[2].path_thumbnail} />
-                <img width={231} height={111} src={data.screenshots[3].path_thumbnail} />
-              </div>
-              <div className="gamecard_details_tags">
-                <GameTag name="Action" />
-              </div>
-              <div className="gamecard_details_interactions">
+            <Cover type="big" gameID={gameID} />
+            <Info type="big">
+              <Title text={data.name} />
+              <Description text={data.short_description} />
+              <Screenshots screenshots={data.screenshots} />
+              <Tags />
+              <Interactions>
                 <WishlistButton />
-                <div className="gamecard_details_interactions_price">
+                <BuyContainer>
                   <PriceTag priceData={data.price_overview} />
                   <BuyButton text="Buy Now" />
-                </div>
-              </div>
-            </div>
+                </BuyContainer>
+              </Interactions>
+            </Info>
           </>
         )}
       </div>

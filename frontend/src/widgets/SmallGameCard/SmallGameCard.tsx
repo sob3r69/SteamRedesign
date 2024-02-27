@@ -1,9 +1,9 @@
-import './SmallGameCard.scss';
 import { Loading, PriceTag, WishlistButton } from '@/shared/components';
 import { memo } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { getAppData } from '@/entities/app/api';
 import { ErrorHandler } from '..';
+import { BuyContainer, Cover, Info, Interactions, Platforms, Title } from '@/entities/app/ui';
 
 type SmallGameCardProps = {
   gameID: string;
@@ -24,66 +24,51 @@ const SmallGameCard = memo(({ gameID, type }: SmallGameCardProps) => {
   // This is a temporary solution to handle errors
   if (error) {
     <ErrorHandler type="compact" error={error} />;
-  } else if (type === 'wide')
-    return (
-      <div className="wide_gamecard_container">
-        {isLoading ? (
-          <Loading />
-        ) : (
-          <div className="wide_gamecard_content">
-            <img
-              className="gamecard_cover"
-              height={87}
-              width={231}
-              src={
-                'https://cdn.cloudflare.steamstatic.com/steam/apps/' +
-                gameID +
-                '/capsule_231x87.jpg'
-              }
-            />
-            <div className="wide_gamecard_info">
-              <h2 className="wide_gamecard_title">{data.name}</h2>
-              <div className="gamecard_details_interactions">
-                <div className="gamecard_details_platforms">platforms</div>
-                <div className="gamecard_details_interactions_price">
-                  <PriceTag priceData={data.price_overview} />
-                  <WishlistButton type="compact" />
-                </div>
+  } else if (data)
+    switch (type) {
+      case 'wide':
+        return (
+          <div className="wide_gamecard_container">
+            {isLoading ? (
+              <Loading />
+            ) : (
+              <div className="wide_gamecard_content">
+                <Cover type="wide" gameID={gameID} />
+                <Info type={type}>
+                  <Title text={data.name} />
+                  <Interactions>
+                    <Platforms />
+                    <BuyContainer>
+                      <PriceTag priceData={data.price_overview} />
+                      <WishlistButton type="compact" />
+                    </BuyContainer>
+                  </Interactions>
+                </Info>
               </div>
-            </div>
+            )}
           </div>
-        )}
-      </div>
-    );
-  else
-    return (
-      <div className="small_gamecard_container">
-        {isLoading ? (
-          <Loading />
-        ) : (
-          <div className="small_gamecard_content">
-            <img
-              className="gamecard_cover"
-              height={197}
-              width={379}
-              src={
-                'https://cdn.cloudflare.steamstatic.com/steam/apps/' +
-                gameID +
-                '/capsule_616x353.jpg'
-              }
-            />
-            <h2 className="small_gamecard_title">{data.name}</h2>
-            <div className="gamecard_details_interactions">
-              <div className="gamecard_details_platforms">platforms</div>
-              <div className="gamecard_details_interactions_price">
-                <PriceTag priceData={data.price_overview} />
-                <WishlistButton type="compact" />
-              </div>
-            </div>
+        );
+      case 'compact':
+        return (
+          <div className="small_gamecard_container">
+            {isLoading ? (
+              <Loading />
+            ) : (
+              <Info type={type}>
+                <Cover type="compact" gameID={gameID} />
+                <Title text={data.name} />
+                <Interactions>
+                  <Platforms />
+                  <BuyContainer>
+                    <PriceTag priceData={data.price_overview} />
+                    <WishlistButton type="compact" />
+                  </BuyContainer>
+                </Interactions>
+              </Info>
+            )}
           </div>
-        )}
-      </div>
-    );
+        );
+    }
 });
 
 export default SmallGameCard;
