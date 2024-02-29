@@ -60,5 +60,5 @@ func getTopSellers() []string {
 		result = append(result, (e.Attr("data-ds-appid")))
 	})
 	c.Visit("https://store.steampowered.com/search/?filter=topsellers")
-	return result
+	return result[0:12]
 }
