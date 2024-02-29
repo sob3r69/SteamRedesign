@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { BigGameCard } from '..';
 import './GamesSlider.scss';
 import { GamesSliderPage, NavDots } from '@/shared/components';
 import { BigArrow } from '@/app/assets';
 import { divideArray } from '@/shared/helpers';
+import { AppCard } from '@/widgets';
 
 type GamesSliderProps = {
   data: string[];
@@ -48,7 +48,7 @@ const GamesSlider = ({ data, autoPlay, autoPlayTime, type }: GamesSliderProps) =
         <div className="slides" style={{ transform: `translateX(-${slide * 100}%)` }}>
           {type === 'slide' ? (
             data.map((appID: string, index) => (
-              <BigGameCard gameID={appID} key={'slider_bigcard_' + index} />
+              <AppCard gameID={appID} type="big" key={'slider_bigcard_' + index} />
             ))
           ) : (
             <GamesSliderPage apps={dividedApps} />

@@ -15,6 +15,7 @@ type AppData = {
   name: string;
   short_description: string;
   screenshots: Screenshot[];
+  steam_appid: number;
   price_overview: PriceData;
 };
 

@@ -3,7 +3,7 @@ type TitleProps = {
 };
 
 const Title = ({ text }: TitleProps) => {
-  return <h2>{text}</h2>;
+  return <h2 className="wide_gamecard_title">{text}</h2>;
 };
 
 export default Title;

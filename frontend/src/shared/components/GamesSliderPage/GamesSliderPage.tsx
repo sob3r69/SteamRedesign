@@ -1,4 +1,4 @@
-import { SmallGameCard } from '@/widgets';
+import { AppCard } from '@/widgets';
 import './GamesSliderPage.scss';
 
 type GamesSliderPageProps = {
@@ -11,7 +11,7 @@ const GamesSliderPage = ({ apps }: GamesSliderPageProps) => {
       {apps.map((row, index) => (
         <div className="slider_page_row" key={'games_page_' + index}>
           {row.map((appID: string, index) => (
-            <SmallGameCard type="wide" gameID={appID} key={'games_page_row_' + index} />
+            <AppCard type="wide" gameID={appID} key={'games_page_row_' + index} />
           ))}
         </div>
       ))}
