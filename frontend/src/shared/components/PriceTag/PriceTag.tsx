@@ -1,4 +1,4 @@
-import { PriceData } from '@/shared/types';
+import { PriceData } from '@/entities/app/types';
 import './PriceTag.scss';
 type PriceTagProps = {
   priceData: PriceData;

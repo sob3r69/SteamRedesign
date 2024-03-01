@@ -12,7 +12,8 @@ const StorePage = () => {
           <h2>FEATURED</h2>
           <GamesSlider data={appsEx} autoPlay={true} autoPlayTime={5000} type="slide" />
         </div>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', marginTop: '20px' }}>
+        <div style={{ marginTop: '10px' }}>
+          <h2>TOP SELLERS</h2>
           <GamesSlider data={data} autoPlay={false} autoPlayTime={20000} type="page" />
         </div>
       </main>
