@@ -1,0 +1,44 @@
+@import '@/app/styles/vars';
+
+.app_page_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .app_page_head {
+    background-color: $backgroundDark;
+    border-radius: 5px;
+    width: 90%;
+    height: 83px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  .app_page_description {
+    border-radius: 5px;
+    background-color: $backgroundDark;
+    width: 90%;
+    height: 694px;
+    margin-top: 13px;
+  }
+  .app_page_row {
+    display: flex;
+    flex-direction: row;
+    gap: 11px;
+    margin-top: 11px;
+    width: 90%;
+    .app_page_content {
+      border-radius: 5px;
+      background-color: $backgroundDark;
+      width: 80%;
+      height: 694px;
+    }
+    .app_page_info {
+      border-radius: 5px;
+      background-color: $backgroundDark;
+      width: 20%;
+      height: 694px;
+    }
+  }
+}

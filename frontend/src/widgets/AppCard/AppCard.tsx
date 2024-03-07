@@ -1,10 +1,9 @@
 import { memo } from 'react';
-import { useQuery } from '@tanstack/react-query';
-import { getAppData } from '@/entities/app/api';
 import { Loading } from '@/shared/components';
 import { ErrorHandler } from '..';
 import BigGameCard from './variants/BigGameCard';
 import SmallGameCard from './variants/SmallGameCard';
+import { useAppDataFetch } from '@/entities/app/api';
 
 type AppCardProps = {
   gameID: string;
@@ -12,11 +11,7 @@ type AppCardProps = {
 };
 
 const AppCard = memo(({ type, gameID }: AppCardProps) => {
-  const { data, error, isLoading } = useQuery({
-    queryKey: ['app', gameID],
-    queryFn: () => getAppData(gameID),
-    refetchOnWindowFocus: false,
-  });
+  const { data, error, isLoading } = useAppDataFetch(gameID);
   if (error) return <ErrorHandler type={type} error={error} />;
   else if (isLoading) return <Loading type={type} />;
   else if (data)

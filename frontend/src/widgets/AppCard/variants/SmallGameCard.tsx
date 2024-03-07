@@ -7,6 +7,8 @@ type SmallGameCardProps = {
   type?: 'compact' | 'wide';
 };
 
+// TODO: Need to refactor this component
+
 /**
  * This component was memoized to improve performance on Slider state updates
  * @param type - 'compact' or 'wide'

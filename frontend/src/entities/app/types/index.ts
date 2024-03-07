@@ -13,6 +13,7 @@ type PriceData = {
 
 type AppData = {
   name: string;
+  background: string;
   short_description: string;
   screenshots: Screenshot[];
   steam_appid: number;
