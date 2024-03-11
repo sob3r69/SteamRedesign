@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import './AppPage.scss';
-import { WishlistButton } from '@/shared/components';
+import { AppTag, WishlistButton } from '@/shared/components';
 import { Title } from '@/entities/app/ui';
 import { useAppDataFetch } from '@/entities/app/api';
 
@@ -28,10 +28,30 @@ const AppPage = () => {
             <WishlistButton type="large" />
           </div>
         </div>
-        <div className="app_page_description">
-          <div className="row_container">
-            <div className="app_page_description_image"></div>
-            <div className="app_page_description_text"></div>
+        <div className="app_page_overview">
+          <div className="app_page_overview_image"></div>
+          <div className="app_page_overview_description">
+            <img width={416} src={data.header_image} />
+            {data.short_description}
+            <div className="app_page_overview_description_reviews">Reviews</div>
+            <div className="app_page_overview_description_row">
+              <h5 className="dim_text">Release Date</h5>
+              <h5>{data.release_date.date}</h5>
+            </div>
+            <div className="app_page_overview_description_row">
+              <h5 className="dim_text">Developer</h5>
+              <h5>{data.developers.join(', ')}</h5>
+            </div>
+            <div className="app_page_overview_description_row">
+              <h5 className="dim_text">Publisher</h5>
+              <h5>{data.publishers.join(', ')}</h5>
+            </div>
+            <h5 className="dim_text">Popular Tags</h5>
+            <div className="app_page_overview_description_tags">
+              {data.genres.map((genre) => (
+                <AppTag key={`genre_${genre.id}`} name={genre.description} />
+              ))}
+            </div>
           </div>
         </div>
         <div className="app_page_row">
