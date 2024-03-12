@@ -1,0 +1,13 @@
+.screenshots_slider {
+  display: flex;
+  margin-top: 10px;
+  gap: 16px;
+  overflow: hidden;
+  // flex-direction: row;
+  // flex-wrap: nowrap;
+  .screenshots_slider_container {
+    display: flex;
+    gap: 7px;
+    overflow: hidden;
+  }
+}

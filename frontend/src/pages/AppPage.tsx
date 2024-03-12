@@ -3,6 +3,7 @@ import './AppPage.scss';
 import { AppTag, WishlistButton } from '@/shared/components';
 import { Title } from '@/entities/app/ui';
 import { useAppDataFetch } from '@/entities/app/api';
+import { ScreenshotsSlider } from '@/widgets';
 
 const AppPage = () => {
   const { appID } = useParams();
@@ -29,7 +30,9 @@ const AppPage = () => {
           </div>
         </div>
         <div className="app_page_overview">
-          <div className="app_page_overview_image"></div>
+          <div className="app_page_overview_image">
+            <ScreenshotsSlider screenshots={data.screenshots} />
+          </div>
           <div className="app_page_overview_description">
             <img width={416} src={data.header_image} />
             {data.short_description}

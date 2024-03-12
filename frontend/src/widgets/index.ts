@@ -6,5 +6,6 @@ import AccountCard from './AccountCard/AccountCard';
 import GamesSlider from './GamesSlider/GamesSlider';
 import ErrorHandler from './ErrorHandler/ErrorHandler';
 import AppCard from './AppCard/AppCard';
+import ScreenshotsSlider from './ScreenshotsSlider/ScreenshotsSlider';
 
-export { ClientHeader, Footer, AccountCard, GamesSlider, ErrorHandler, AppCard };
+export { ClientHeader, Footer, AccountCard, GamesSlider, ErrorHandler, AppCard, ScreenshotsSlider };

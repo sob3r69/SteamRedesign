@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './GamesSlider.scss';
-import { GamesSliderPage, NavDots } from '@/shared/components';
+import { GamesSliderPage, NavDot } from '@/shared/components';
 import { BigArrow } from '@/app/assets';
 import { divideArray } from '@/shared/helpers';
 import { AppCard } from '@/widgets';
@@ -57,7 +57,7 @@ const GamesSlider = ({ data, autoPlay, autoPlayTime, type }: GamesSliderProps) =
         <div className="slider_buttons">
           {type === 'page'
             ? dividedApps.map((data: string[], index: number) => (
-                <NavDots
+                <NavDot
                   key={'page_dots_' + index}
                   onClick={() => setSlide(index)}
                   time={autoPlayTime!}
@@ -65,7 +65,7 @@ const GamesSlider = ({ data, autoPlay, autoPlayTime, type }: GamesSliderProps) =
                 />
               ))
             : data.map((appID: string, index: number) => (
-                <NavDots
+                <NavDot
                   key={'slider_bigcard_dots_' + index}
                   isActive={slide === index}
                   onClick={() => setSlide(index)}
