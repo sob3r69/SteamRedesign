@@ -36,7 +36,9 @@ const AppPage = () => {
           <div className="app_page_overview_description">
             <img width={416} src={data.header_image} />
             {data.short_description}
-            <div className="app_page_overview_description_reviews">Reviews</div>
+            <div className="app_page_overview_description_reviews">
+              <h5 className="dim_text">Reviews</h5>
+            </div>
             <div className="app_page_overview_description_row">
               <h5 className="dim_text">Release Date</h5>
               <h5>{data.release_date.date}</h5>

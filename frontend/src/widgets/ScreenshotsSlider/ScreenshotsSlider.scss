@@ -1,13 +1,63 @@
+@import '@/app/styles/vars';
+
+@keyframes fade {
+  from {
+    display: none;
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeAway {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    display: none;
+  }
+}
+
+.fadeanim {
+  animation: fade 500ms ease;
+}
+.fadeout {
+  animation: fadeAway 500ms ease;
+}
+
+.selected_screenshot {
+  opacity: 1;
+}
+.temp_screenshot {
+  opacity: 0;
+  position: absolute;
+}
 .screenshots_slider {
   display: flex;
-  margin-top: 10px;
-  gap: 16px;
+  // margin-top: 10px;
+  // justify-content: space-between;
   overflow: hidden;
+  // height: 132px;
   // flex-direction: row;
   // flex-wrap: nowrap;
   .screenshots_slider_container {
     display: flex;
     gap: 7px;
     overflow: hidden;
+    .screenshots_slider_button {
+      background: none;
+      box-sizing: border-box;
+      border-radius: 5px;
+      height: min-content;
+      padding: 0;
+      margin: 0;
+      outline-offset: -3px;
+      outline-color: $colorSecondary;
+    }
+    .screenshots_slider_image {
+      border-radius: 5px;
+      display: block;
+    }
   }
 }
