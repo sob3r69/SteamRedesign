@@ -17,6 +17,9 @@ const ScreenshotsSlider = ({ screenshots, autoPlay, autoPlayTime }: ScreenshotsS
 
   const activeScreenshotRef = useRef<HTMLImageElement>(null);
   const tempScreenshotRef = useRef<HTMLImageElement>(null);
+  const screenshotContRef = useRef<HTMLDivElement>(null);
+
+  console.log(235 * screenshots.length);
 
   const changeSlide = (direction = 1) => {
     let slideNumber = 0;
@@ -30,6 +33,7 @@ const ScreenshotsSlider = ({ screenshots, autoPlay, autoPlayTime }: ScreenshotsS
     setSlide(slideNumber);
   };
 
+  // TODO: refactor animation code
   const startFadeAnimation = () => {
     activeScreenshotRef.current!.className = 'selected_screenshot fadeanim';
     tempScreenshotRef.current!.className = 'temp_screenshot fadeout';
@@ -72,17 +76,30 @@ const ScreenshotsSlider = ({ screenshots, autoPlay, autoPlayTime }: ScreenshotsS
         ref={tempScreenshotRef}
       />
       <div className="screenshots_slider">
-        <button className="slider_button" onClick={() => changeSlide(-1)}>
+        <button
+          className="slider_button"
+          onClick={() => {
+            screenshotContRef.current!.scrollBy(-400, 0);
+            changeSlide(-1);
+          }}
+        >
           <img id="arrowLeft" src={BigArrow} />
         </button>
-        <div className="screenshots_slider_container">
+        <div className="screenshots_slider_container" ref={screenshotContRef}>
           {screenshots.map((screenshot) => (
             <button
+              key={screenshot.id}
               className="screenshots_slider_button"
-              onClick={() => {
+              onClick={(e) => {
+                if (activeScreenshot === screenshot) return;
                 startFadeAnimation();
                 setTempScreenshot(activeScreenshot);
                 setActiveScreenshot(screenshot);
+                e.currentTarget.scrollIntoView({
+                  behavior: 'smooth',
+                  inline: 'center',
+                  block: 'nearest',
+                });
               }}
               onMouseDown={() => {
                 stopFadeAnimation();
@@ -98,12 +115,16 @@ const ScreenshotsSlider = ({ screenshots, autoPlay, autoPlayTime }: ScreenshotsS
                 width={231}
                 height={129}
                 src={screenshot.path_thumbnail}
-                // style={{ display: 'block' }}
               />
             </button>
           ))}
         </div>
-        <button className="slider_button" onClick={() => changeSlide(-1)}>
+        <button
+          className="slider_button"
+          onClick={() => {
+            screenshotContRef.current!.scrollBy(400, 0);
+          }}
+        >
           <img id="arrowRight" src={BigArrow} />
         </button>
       </div>

@@ -42,9 +42,15 @@
   // flex-direction: row;
   // flex-wrap: nowrap;
   .screenshots_slider_container {
-    display: flex;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    scroll-margin-block-start: 200px;
     gap: 7px;
-    overflow: hidden;
+    display: flex;
+    position: relative;
+    right: 0;
+    transition: right 0.3s ease;
+
     .screenshots_slider_button {
       background: none;
       box-sizing: border-box;
