@@ -1,12 +1,12 @@
 import { ProgressBar } from '..';
 
-type NavDotsProps = {
+type NavDotProps = {
   onClick: () => void;
   time: number;
   isActive: boolean;
 };
 
-const NavDots = ({ onClick, time, isActive }: NavDotsProps) => {
+const NavDot = ({ onClick, time, isActive }: NavDotProps) => {
   return (
     <button className="slider_button" onClick={onClick}>
       <ProgressBar isActive={isActive} autoPlayTime={time} />
@@ -14,4 +14,4 @@ const NavDots = ({ onClick, time, isActive }: NavDotsProps) => {
   );
 };
 
-export default NavDots;
+export default NavDot;

@@ -1,11 +1,11 @@
+.slider_button {
+  background: none;
+}
 .games_slider {
   display: flex;
   align-items: center;
   gap: 20px;
   width: 1362px;
-  .slider_button {
-    background: none;
-  }
   .slider_container {
     overflow: hidden;
     width: 1280px;

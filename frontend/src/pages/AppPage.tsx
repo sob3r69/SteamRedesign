@@ -3,11 +3,14 @@ import './AppPage.scss';
 import { AppTag, WishlistButton } from '@/shared/components';
 import { Title } from '@/entities/app/ui';
 import { useAppDataFetch } from '@/entities/app/api';
+import { ScreenshotsSlider } from '@/widgets';
 
 const AppPage = () => {
   const { appID } = useParams();
 
   const { data, error, isLoading } = useAppDataFetch(appID!);
+
+  console.log(data?.package_groups);
 
   if (data)
     return (
@@ -29,11 +32,15 @@ const AppPage = () => {
           </div>
         </div>
         <div className="app_page_overview">
-          <div className="app_page_overview_image"></div>
+          <div className="app_page_overview_image">
+            <ScreenshotsSlider screenshots={data.screenshots} />
+          </div>
           <div className="app_page_overview_description">
             <img width={416} src={data.header_image} />
             {data.short_description}
-            <div className="app_page_overview_description_reviews">Reviews</div>
+            <div className="app_page_overview_description_reviews">
+              <h5 className="dim_text">Reviews</h5>
+            </div>
             <div className="app_page_overview_description_row">
               <h5 className="dim_text">Release Date</h5>
               <h5>{data.release_date.date}</h5>
