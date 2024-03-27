@@ -19,8 +19,6 @@ const ScreenshotsSlider = ({ screenshots, autoPlay, autoPlayTime }: ScreenshotsS
   const tempScreenshotRef = useRef<HTMLImageElement>(null);
   const screenshotContRef = useRef<HTMLDivElement>(null);
 
-  console.log(235 * screenshots.length);
-
   const changeSlide = (direction = 1) => {
     let slideNumber = 0;
 

@@ -10,6 +10,8 @@ const AppPage = () => {
 
   const { data, error, isLoading } = useAppDataFetch(appID!);
 
+  console.log(data?.package_groups);
+
   if (data)
     return (
       <div
