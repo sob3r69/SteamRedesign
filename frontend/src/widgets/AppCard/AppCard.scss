@@ -1,9 +1,13 @@
+@import '@/app/styles/vars';
+
 .app_card {
   background: none;
   box-sizing: border-box;
   border-radius: 5px;
+  color: $mainText;
   display: contents;
   height: min-content;
   padding: 0;
   margin: 0;
+  text-decoration: none;
 }
