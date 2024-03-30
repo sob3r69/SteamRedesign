@@ -14,7 +14,7 @@ const AppPage = () => {
 
   if (data)
     return (
-      <div
+      <main
         className="app_page_container"
         style={{
           backgroundImage: `url(${data.background})`,
@@ -75,7 +75,7 @@ const AppPage = () => {
         </div>
         <div className="app_page_similar"></div>
         <div className="app_page_reviews"></div>
-      </div>
+      </main>
     );
 };
 

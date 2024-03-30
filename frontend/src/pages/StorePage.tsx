@@ -1,3 +1,5 @@
+import './StorePage.scss';
+
 import { useTopSellers } from '@/shared/hooks';
 import { GamesSlider } from '@/widgets';
 
